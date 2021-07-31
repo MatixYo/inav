@@ -62,6 +62,8 @@ typedef enum {
     INPUT_GVAR_5                    = 35,
     INPUT_GVAR_6                    = 36,
     INPUT_GVAR_7                    = 37,
+    COMPENSATED_ROLL                = 38,
+    COMPENSATED_PITCH               = 39,
 
     INPUT_SOURCE_COUNT
 } inputSource_e;

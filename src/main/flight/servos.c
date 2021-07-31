@@ -320,6 +320,9 @@ void servoMixer(float dT)
     input[INPUT_RC_CH16]     = GET_RX_CHANNEL_INPUT(AUX12);
 #undef GET_RX_CHANNEL_INPUT
 
+    input[COMPENSATED_ROLL] = input[INPUT_STABILIZED_ROLL] + (imuMeasuredRotationBF.y * input[INPUT_GVAR_0]/* * input[INPUT_STABILIZED_THROTTLE]*/);
+    input[COMPENSATED_PITCH] = input[INPUT_STABILIZED_PITCH] - (imuMeasuredRotationBF.x * input[INPUT_GVAR_0]/* * input[INPUT_STABILIZED_THROTTLE]*/);
+
     for (int i = 0; i < MAX_SUPPORTED_SERVOS; i++) {
         servo[i] = 0;
     }
